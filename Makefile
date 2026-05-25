@@ -20,7 +20,22 @@ DISTCLEAN_ARTIFACTS := AN.DB verdiLog vdCovLog coverage.vdb vdCov.conf \
 	$(FSDB) $(FSDB).* $(FSDB)* novas.conf novas.rc inter.fsdb inter.fsdb.* \
 	.inter.fsdb.tbsim .vcs_checkpoint_shared_memory.* sysProgressP.conf sysProgressPLog
 
-.PHONY: compile sim verdi clean distclean clear sim_base sim_tx sim_rx sim_loopback
+.PHONY: help compile sim verdi clean distclean clear sim_base sim_tx sim_rx sim_loopback
+
+help:
+	@echo "Targets:"
+	@echo "  make compile       - compile UART DUT and UVM testbench with VCS"
+	@echo "  make sim           - run selected UVM test, override with TC=<test_name>"
+	@echo "  make sim_base      - run uart_base_test"
+	@echo "  make sim_tx        - run uart_tx_test"
+	@echo "  make sim_rx        - run uart_rx_test"
+	@echo "  make sim_loopback  - run uart_loopback_test"
+	@echo "  make verdi         - open waveform/debug database with Verdi"
+	@echo "  make clean         - remove compile/sim temporary files"
+	@echo "  make distclean     - clean plus waveform, coverage, and Verdi artifacts"
+	@echo ""
+	@echo "Variables:"
+	@echo "  TOP=$(TOP), TC=$(TC), SEED=$(SEED), FSDB=$(FSDB)"
 
 compile:
 	vcs $(VCS_OPTS) -top $(TOP) -o simv -f filelist.f

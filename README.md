@@ -52,3 +52,16 @@ uart_test
 
 - TX/RX 단독 test와 loopback test를 분리했습니다.
 - Monitor가 수집한 transaction을 scoreboard에서 비교하여 pass/fail을 판단합니다.
+
+## 실행 방법
+
+Synopsys VCS와 UVM 1.2 환경에서 실행하는 기준입니다.
+
+```bash
+make sim_base
+make sim_tx
+make sim_rx
+make sim_loopback
+make verdi
+make clean
+```

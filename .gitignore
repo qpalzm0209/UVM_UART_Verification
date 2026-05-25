@@ -1,0 +1,15 @@
+simv
+simv.daidir/
+csrc/
+ucli.key
+DVEfiles/
+*.log
+*.key
+*.fsdb
+*.vcd
+AN.DB/
+verdiLog/
+vdCovLog/
+coverage.vdb/
+novas.*
+.vcs_checkpoint_shared_memory.*
